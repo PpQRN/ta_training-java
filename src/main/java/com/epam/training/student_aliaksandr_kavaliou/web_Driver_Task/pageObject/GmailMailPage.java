@@ -6,14 +6,14 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class GmailMailPage extends BasePage{
-     private final SelenideElement incomingMsg = $x("//a[@href = 'https://mail.google.com/mail/u/1/#inbox']");
+     private final SelenideElement incomingMsgField = $x("//div[@class = 'TN bzz aHS-bnt']//a");
      private final SelenideElement writeButton = $x("//div[@class = 'T-I T-I-KE L3']");
      private final SelenideElement toWhomField = $x("//input[@class = 'agP aFw']");
      private final SelenideElement textBox = $x("//td[@class = 'Ap']//div[@class = 'Am Al editable LW-avf tS-tW']");
      private final SelenideElement sendButton = $x("//div[@class = 'T-I J-J5-Ji aoO v7 T-I-atl L3']");
 
-     public SelenideElement getVhodyashie(){
-         return incomingMsg;
+     public SelenideElement incomingMsgField(){
+         return incomingMsgField;
      }
 
      public GmailMailPage clickOnWriteButton(){

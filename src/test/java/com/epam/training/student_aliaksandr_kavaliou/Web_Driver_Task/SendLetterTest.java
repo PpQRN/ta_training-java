@@ -11,11 +11,11 @@ import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class SendLetterTest {
+public class SendLetterTest extends BaseTest {
 
     @BeforeTest
     public void loginInGmail(){
-        open(Links.HomepageGmail.getLink());
+        Open(Links.HomepageGmail.getLink());
         new GmailHeader().clickOnLoginButton()
                 .enterLogin("sashatestmail056@gmail.com")
                 .clickOnNextButton()

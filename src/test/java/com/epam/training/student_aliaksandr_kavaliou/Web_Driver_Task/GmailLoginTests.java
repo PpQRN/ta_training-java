@@ -39,7 +39,7 @@ public class GmailLoginTests extends BaseTest {
                 .clickOnNextButton()
                 .enterPassword("Password123456$")
                 .clickOnNextButtonaAfterPassword()
-                .getVhodyashie().shouldBe(Condition.visible);
+                .incomingMsgField().shouldBe(Condition.visible);
     }
 
     @AfterMethod

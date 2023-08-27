@@ -20,46 +20,44 @@ public class YandexMailPage extends BasePage {
     private static final SelenideElement relevantButton = $x("//a[@href = '#tabs/relevant']");
 
 
-    public YandexMailPage clickOnRefreshButton(){
+    public YandexMailPage clickOnRefreshButton() {
         refreshButton.shouldBe(Condition.visible);
         return this;
     }
 
-    public YandexMailPage clickOnNewLetter(){
+    public YandexMailPage clickOnNewLetter() {
         Configuration.timeout = 10000;
         newLetterFromAliaksandr.shouldBe(Condition.visible)
                 .click();
         return this;
     }
 
-    public SelenideElement getLetterText(){
+    public SelenideElement getLetterText() {
         return letterText;
     }
 
-    public YandexMailPage clickOnLetterCheckbox(){
+    public YandexMailPage clickOnLetterCheckbox() {
         letterCheckBox.shouldBe(Condition.visible)
                 .click();
         return this;
     }
 
-    public YandexMailPage clickOnDeleteButton(){
+    public YandexMailPage clickOnDeleteButton() {
         deleteButton.shouldBe(Condition.visible)
                 .click();
         return this;
     }
 
-    public YandexMailPage clickOnRelevantButton(){
+    public YandexMailPage clickOnRelevantButton() {
         relevantButton.shouldBe(Condition.visible)
                 .click();
         return this;
     }
 
-    public YandexMailPage waitUntilLetterAppears(){
-        try{
-        Thread.sleep(10000);}
-        catch (InterruptedException exception){}
+    public YandexMailPage waitUntilLetterAppears() {
+        while (!newLetterFromAliaksandr.is(Condition.visible)) {
+            clickOnRefreshButton();
+        }
         return this;
     }
-
-
 }

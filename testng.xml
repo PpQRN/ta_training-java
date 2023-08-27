@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SmokeTests">
+    <test name="Tests">
+        <classes>
+            <class name="com.epam.training.student_aliaksandr_kavaliou.Web_Driver_Task.GmailLoginTests"/>
+        </classes>
+    </test>
+</suite>
