@@ -8,8 +8,8 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class GmailHeader extends BasePage{
 
-    private static final SelenideElement loginButton = $x("//a[contains(@class, 'button')" +
-            " and contains(text(), 'Войти')]");
+    private static final SelenideElement loginButton = $x("//a[contains(@class, 'button') " +
+            "and contains(@data-action, 'sign in')]");
 
     public GmailLoginPage clickOnLoginButton(){
         loginButton.shouldBe(Condition.visible)

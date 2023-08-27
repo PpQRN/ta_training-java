@@ -20,7 +20,7 @@ public class SendLetterTest {
                 .enterLogin("sashatestmail056@gmail.com")
                 .clickOnNextButton()
                 .enterPassword("Password123456$")
-                .clickOnNextButtonafterPassword();
+                .clickOnNextButtonaAfterPassword();
     }
 
     @Test

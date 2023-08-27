@@ -9,7 +9,8 @@ public class GmailLoginPage extends BasePage{
 
     public static final SelenideElement emailField = $x("//input[@type = 'email']");
     public static final SelenideElement passwordField = $x("//input[@type = 'password']");
-    public static final SelenideElement nextButton = $x("//span[contains(text(), 'Далее')]");
+    public static final SelenideElement nextButton = $x("//button[@class = " +
+            "\"VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc LQeN7 qIypjc TrZEUc lw1w4b\"]//span");
     public static final SelenideElement errorText = $x("//div[@class = 'o6cuMc Jj6Lae']");
 
     public SelenideElement getErrorText(){
@@ -33,7 +34,7 @@ public class GmailLoginPage extends BasePage{
         return this;
     }
 
-    public GmailMailPage clickOnNextButtonafterPassword(){
+    public GmailMailPage clickOnNextButtonaAfterPassword(){
         nextButton.shouldBe(Condition.visible)
                 .click();
         return new GmailMailPage();

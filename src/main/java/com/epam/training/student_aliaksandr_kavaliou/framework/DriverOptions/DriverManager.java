@@ -10,24 +10,19 @@ public class DriverManager {
     private static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
 
     public static void initDriver(String driverType) {
-        if (driver.get() == null) {
-            if (driverType.equals("remote")) {
-                new RemoteDriverCreator().create();
-            } else {
-                Configuration.browser = driverType;
-                Configuration.pageLoadTimeout = 20000;
-                open();
-                WebDriverRunner.getWebDriver().manage().window().maximize();
-            }
+        if (driver.get() != null) {
+            return;
         }
+        if ("remote".equals(driverType)) {
+            new RemoteDriverCreator().create();
+            return;
+        }
+        if (driverType == null) {
+            driverType = "chrome";
+        }
+        Configuration.browser = driverType;
+        Configuration.pageLoadTimeout = 20000;
+        open();
+        WebDriverRunner.getWebDriver().manage().window().maximize();
     }
-//    public static void initDriver(String driverType) {
-//        if (driver.get() == null) {
-//                Configuration.browser = "Chrome";
-//                Configuration.pageLoadTimeout = 20000;
-//                open();
-//                WebDriverRunner.getWebDriver().manage().window().maximize();
-//        }
-//    }
-
 }

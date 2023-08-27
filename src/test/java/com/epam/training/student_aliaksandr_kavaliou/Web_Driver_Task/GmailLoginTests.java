@@ -6,17 +6,16 @@ import com.epam.training.student_aliaksandr_kavaliou.web_Driver_Task.Links.Links
 import com.epam.training.student_aliaksandr_kavaliou.web_Driver_Task.pageObject.GmailHeader;
 import org.testng.annotations.*;
 
-import static com.codeborne.selenide.Selenide.open;
 
 public class GmailLoginTests extends BaseTest {
 
     @BeforeMethod
-    public void Open() {
-        open(Links.HomepageGmail.getLink());
+    public void openHomePage() {
+        Open(Links.HomepageGmail.getLink());
     }
 
     @Test
-    public void EmptyCredentialsTest() {
+    public void emptyCredentialsTest() {
         new GmailHeader().clickOnLoginButton()
                 .enterLogin("")
                 .clickOnNextButton()
@@ -25,7 +24,7 @@ public class GmailLoginTests extends BaseTest {
     }
 
     @Test
-    public void WrongCredentialsTest() {
+    public void wrongCredentialsTest() {
         new GmailHeader().clickOnLoginButton()
                 .enterLogin("notExistingCredentialsIHope.com")
                 .clickOnNextButton()
@@ -34,12 +33,12 @@ public class GmailLoginTests extends BaseTest {
     }
 
     @Test
-    public void ValidCredentialsTest() {
+    public void validCredentialsTest() {
         new GmailHeader().clickOnLoginButton()
                 .enterLogin("sashatestmail056@gmail.com")
                 .clickOnNextButton()
                 .enterPassword("Password123456$")
-                .clickOnNextButtonafterPassword()
+                .clickOnNextButtonaAfterPassword()
                 .getVhodyashie().shouldBe(Condition.visible);
     }
 
